@@ -42,7 +42,7 @@ router.get("/positions",function(req,res)
 console.log(ses);
  request({
   "headers":{
-    "Cookie":allSes[0]
+    "Cookie":allSes != null?allSes[0]:null
  
   },
  uri:"http://52.37.150.11:8082/api/positions"
