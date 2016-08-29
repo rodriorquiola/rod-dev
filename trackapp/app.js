@@ -28,7 +28,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/text',function(req,res)
 {
-  console.log("aqui llegue");
+ res.end("allsd"); 
+ console.log("aqui llegue");
 });
 app.use('/tracker',tracker);
 
