@@ -3,8 +3,9 @@ var router = express.Router();
 var rq=require('request');
 var querystring=require('querystring');
 var Cookies=require('cookies');
-var config = require('./config.js'); //to obtain dynamic IP of the VPS Amazon Web Service
+var config = require('../config.js'); //to obtain dynamic IP of the VPS Amazon Web Service
 /* GET users listing. */
+console.log(config);
 var request=require('request');
 var ses=null;
 var allSes=null;
@@ -22,7 +23,7 @@ var formData={
   },
   method:"POST",
   //host:"52.42.220.194:5082",
-  uri:config.url+":8082/api/session",
+  uri:config.url+"/api/session",
   form:formData
 },function(error, response, body)
 {
@@ -48,7 +49,7 @@ console.log(ses);
     "Cookie":allSes != null?allSes[0]:null
  
   },
- uri:config.url+":8082/api/positions"
+ uri:config.url+"/api/positions"
 
 },function(error,response,body){
  res.statusCode=response.statusCode.toString(); 
@@ -68,7 +69,7 @@ console.log(ses);
     "Cookie":allSes != null?allSes[0]:null
  
   },
-uri:config.url+":8082/api/devices?_dc=1469673668161&page=1&start=0&limit=25"
+uri:config.url+"/api/devices?_dc=1469673668161&page=1&start=0&limit=25"
  
 },function(error,response,body)
 {
@@ -87,7 +88,7 @@ console.log(ses);
     "Cookie":allSes != null?allSes[0]:null
  
   },
- uri:config.url+":8082/api/server?_dc=1469673651304"
+ uri:config.url+"/api/server?_dc=1469673651304"
  
 },function(error,response,body)
 {
